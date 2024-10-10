@@ -1,4 +1,4 @@
-/* <HAL library based SEPS525 screen driver>
+ * <HAL library based SEPS525 screen driver>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +11,13 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
- */
 
-/*
  * Copyright (C) 2024 KongyouxEther
  * All rights reserved.
  * 
  * Author: KongyouxEther
  * Email: kongyouether@qq.com
- */
-/*********************************************************
+   
 *   GPIO引脚定义：                                         
 *   OLED_CS|OLED_RES|OLED_DC ---> GPIO OUTPUT Output push pull
 *********************************************************
@@ -49,4 +46,3 @@
 *   OLED显示颜色：16位彩色
 *********************************************************
 *   2024/09/23：创建文件，从中景园的构式标准库移植成HAL库
-********************************************************/
