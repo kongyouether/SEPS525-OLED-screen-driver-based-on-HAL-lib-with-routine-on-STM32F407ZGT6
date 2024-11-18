@@ -62,10 +62,16 @@ void Error_Handler(void);
 #define OLED_DC_GPIO_Port GPIOB
 #define OLED_RES_Pin GPIO_PIN_1
 #define OLED_RES_GPIO_Port GPIOB
-#define OLED_CS_Pin GPIO_PIN_2
-#define OLED_CS_GPIO_Port GPIOB
+#define OLED_CS1_Pin GPIO_PIN_2
+#define OLED_CS1_GPIO_Port GPIOB
 #define LED_Pin GPIO_PIN_14
 #define LED_GPIO_Port GPIOB
+#define OLED_CS2_Pin GPIO_PIN_3
+#define OLED_CS2_GPIO_Port GPIOB
+#define OLED_CS3_Pin GPIO_PIN_4
+#define OLED_CS3_GPIO_Port GPIOB
+#define OLED_CS4_Pin GPIO_PIN_5
+#define OLED_CS4_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 extern SPI_HandleTypeDef hspi1;

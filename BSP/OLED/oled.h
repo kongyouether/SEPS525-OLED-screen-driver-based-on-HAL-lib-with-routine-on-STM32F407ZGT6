@@ -35,9 +35,17 @@
 #define OLED_DC_Clr() HAL_GPIO_WritePin(OLED_DC_GPIO_Port,OLED_DC_Pin,GPIO_PIN_RESET)//DC
 #define OLED_DC_Set() HAL_GPIO_WritePin(OLED_DC_GPIO_Port,OLED_DC_Pin,GPIO_PIN_SET)
  		     
-#define OLED_CS_Clr()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port,OLED_CS_Pin,GPIO_PIN_RESET)//CS
-#define OLED_CS_Set()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port,OLED_CS_Pin,GPIO_PIN_SET)
+#define OLED_CS1_Clr()  HAL_GPIO_WritePin(OLED_CS1_GPIO_Port,OLED_CS1_Pin,GPIO_PIN_RESET)//CS1
+#define OLED_CS1_Set()  HAL_GPIO_WritePin(OLED_CS1_GPIO_Port,OLED_CS1_Pin,GPIO_PIN_SET)
 
+#define OLED_CS2_Clr()  HAL_GPIO_WritePin(OLED_CS2_GPIO_Port,OLED_CS2_Pin,GPIO_PIN_RESET)//CS2
+#define OLED_CS2_Set()  HAL_GPIO_WritePin(OLED_CS2_GPIO_Port,OLED_CS2_Pin,GPIO_PIN_SET)
+
+#define OLED_CS3_Clr()  HAL_GPIO_WritePin(OLED_CS3_GPIO_Port,OLED_CS3_Pin,GPIO_PIN_RESET)//CS3
+#define OLED_CS3_Set()  HAL_GPIO_WritePin(OLED_CS3_GPIO_Port,OLED_CS3_Pin,GPIO_PIN_SET)
+
+#define OLED_CS4_Clr()  HAL_GPIO_WritePin(OLED_CS4_GPIO_Port,OLED_CS4_Pin,GPIO_PIN_RESET)//CS4
+#define OLED_CS4_Set()  HAL_GPIO_WritePin(OLED_CS4_GPIO_Port,OLED_CS4_Pin,GPIO_PIN_SET)
 
 //-----------------重要参数定义----------------
 #define OLED_CMD  0	//写命令
@@ -52,6 +60,7 @@
 
 #define uint8_t unsigned char
 #define uint32_t unsigned int
+
 
 
 //-----------------函数声明----------------
@@ -70,6 +79,9 @@ void OLED_Init(void);
 void OLED_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void OLED_Fill(uint16_t xsta, uint16_t ysta, uint16_t xend, uint16_t yend, uint16_t color);
 void OLED_DrawPoint(uint16_t x, uint16_t y, uint16_t color);
+
+//-----------------变量声明----------------
+extern uint8_t WHICH_CS;
 
 //-----------------画笔颜色----------------
 #define WHITE         	 	0xFFFF

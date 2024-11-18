@@ -62,7 +62,8 @@
 #include "oledfont.h"
 #include "pic.h"
  
-
+//-----------------变量---------------
+uint8_t WHICH_CS = 0;
 
 /******************************************************************************
       函数说明：屏幕旋转
@@ -602,6 +603,81 @@ void OLED_DrawPoint(uint16_t x, uint16_t y, uint16_t color)
 
 
 /******************************************************************************
+      函数说明:	OLED片选 置0
+      入口数据:	uint8_t WHICH_CS 选择片选
+      返回值：  无
+	  注：WHICH_CS为0时，4个同时置0
+******************************************************************************/
+void OLED_CS_Clr()
+{
+	switch (WHICH_CS)
+	{
+	case 0:
+		HAL_GPIO_WritePin(OLED_CS1_GPIO_Port, OLED_CS1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(OLED_CS2_GPIO_Port, OLED_CS2_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(OLED_CS3_GPIO_Port, OLED_CS3_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(OLED_CS4_GPIO_Port, OLED_CS4_Pin, GPIO_PIN_RESET);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(OLED_CS1_GPIO_Port, OLED_CS1_Pin, GPIO_PIN_RESET);
+		break;
+	
+	case 2:
+		HAL_GPIO_WritePin(OLED_CS2_GPIO_Port, OLED_CS2_Pin, GPIO_PIN_RESET);
+		break;
+
+	case 3:
+		HAL_GPIO_WritePin(OLED_CS3_GPIO_Port, OLED_CS3_Pin, GPIO_PIN_RESET);
+		break;
+
+	case 4:
+		HAL_GPIO_WritePin(OLED_CS4_GPIO_Port, OLED_CS4_Pin, GPIO_PIN_RESET);
+		break;
+		
+	default:
+		break;
+	}
+}
+
+
+/******************************************************************************
+      函数说明:	OLED片选 置1
+      入口数据:	uint8_t WHICH_CS 选择片选
+      返回值：  无
+	  注：WHICH_CS为0时，4个同时置1
+******************************************************************************/
+void OLED_CS_Set()
+{
+	switch (WHICH_CS)
+	{
+	case 0:
+		HAL_GPIO_WritePin(OLED_CS1_GPIO_Port, OLED_CS1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(OLED_CS2_GPIO_Port, OLED_CS2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(OLED_CS3_GPIO_Port, OLED_CS3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(OLED_CS4_GPIO_Port, OLED_CS4_Pin, GPIO_PIN_SET);
+	case 1:
+		HAL_GPIO_WritePin(OLED_CS1_GPIO_Port, OLED_CS1_Pin, GPIO_PIN_SET);
+		break;
+	
+	case 2:
+		HAL_GPIO_WritePin(OLED_CS2_GPIO_Port, OLED_CS2_Pin, GPIO_PIN_SET);
+		break;
+
+	case 3:
+		HAL_GPIO_WritePin(OLED_CS3_GPIO_Port, OLED_CS3_Pin, GPIO_PIN_SET);
+		break;
+
+	case 4:
+		HAL_GPIO_WritePin(OLED_CS4_GPIO_Port, OLED_CS4_Pin, GPIO_PIN_SET);
+		break;
+
+	default:
+		break;
+	}
+}
+
+
+/******************************************************************************
       函数说明:OLED写入数据
       入口数据:	dat 写入的数据
 				cmd 写入的数据类型:OLED_CMD(命令)或OLED_DATA(数据)
@@ -648,6 +724,8 @@ void OLED_WR_16Byte(uint16_t dat,uint8_t cmd)
 	HAL_SPI_Transmit(WHICH_SPI,(uint8_t *)data1_spi,1,1000); //需根据实际情况修改
 	OLED_CS_Set();
 }
+
+
 
 
 /******************************************************************************

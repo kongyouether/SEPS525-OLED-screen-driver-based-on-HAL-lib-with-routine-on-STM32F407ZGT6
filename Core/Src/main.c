@@ -91,12 +91,19 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-	
-//	HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_SET);
 //	
-//	OLED_Init();//OLED初始化
+	HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_SET);
+	
+  WHICH_CS = 0;
+  OLED_Init();//OLED初始化
+	
 
-//	OLED_Fill(0,0,OLED_W,OLED_H,WHITE);
+	
+//	HAL_Delay(100);
+//  WHICH_CS = 4;
+//  OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
+	
+
 
 //	OLED_ScreenProtect();
   /* USER CODE END 2 */
@@ -106,10 +113,27 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-		HAL_Delay(100);
 
     /* USER CODE BEGIN 3 */
+		
+		
+	HAL_Delay(100);
+  WHICH_CS = 1;
+	OLED_Fill(0,0,OLED_W,OLED_H,WHITE);
+	HAL_Delay(500);
+	OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
+	
+	HAL_Delay(100);
+  WHICH_CS = 2;
+  OLED_Fill(0,0,OLED_W,OLED_H,RED);
+	HAL_Delay(500);
+	OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
+	
+	HAL_Delay(100);
+  WHICH_CS = 3;
+  OLED_Fill(0,0,OLED_W,OLED_H,GREEN);
+	HAL_Delay(500);
+	OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
 
   }
   /* USER CODE END 3 */
