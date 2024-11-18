@@ -135,6 +135,12 @@ int main(void)
 	HAL_Delay(500);
 	OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
 
+  HAL_Delay(100);
+  WHICH_CS = 4;
+  OLED_Fill(0,0,OLED_W,OLED_H,YELLOW);
+	HAL_Delay(500);
+	OLED_Fill(0,0,OLED_W,OLED_H,BLUE);
+
   }
   /* USER CODE END 3 */
 }
